@@ -271,6 +271,7 @@ if __name__ == '__main__':
         serviceRun.do_setting_activemq_users(os.getenv('ACTIVEMQ_ADMIN_LOGIN'), os.getenv('ACTIVEMQ_ADMIN_PASSWORD'))
         serviceRun.do_setting_activemq_web_access("admin", os.getenv('ACTIVEMQ_ADMIN_LOGIN'), os.getenv('ACTIVEMQ_ADMIN_PASSWORD'))
         serviceRun.do_setting_activemq_groups("admins", os.getenv('ACTIVEMQ_ADMIN_LOGIN'))
+        serviceRun.do_setting_activemq_groups("tempDestinationAdmins", os.getenv('ACTIVEMQ_ADMIN_LOGIN'))
         serviceRun.do_setting_activemq_credential(os.getenv('ACTIVEMQ_ADMIN_LOGIN'), os.getenv('ACTIVEMQ_ADMIN_PASSWORD'))
 
 
@@ -284,11 +285,13 @@ if __name__ == '__main__':
     if os.getenv('ACTIVEMQ_OWNER_LOGIN') is not None and os.getenv('ACTIVEMQ_OWNER_PASSWORD') is not None:
         serviceRun.do_setting_activemq_users(os.getenv('ACTIVEMQ_OWNER_LOGIN'), os.getenv('ACTIVEMQ_OWNER_PASSWORD'))
         serviceRun.do_setting_activemq_groups("owners", os.getenv('ACTIVEMQ_OWNER_LOGIN'))
+        serviceRun.do_setting_activemq_groups("tempDestinationAdmins", os.getenv('ACTIVEMQ_OWNER_LOGIN'))
 
     # We setting the writer account
     if os.getenv('ACTIVEMQ_WRITE_LOGIN') is not None and os.getenv('ACTIVEMQ_WRITE_PASSWORD') is not None:
         serviceRun.do_setting_activemq_users(os.getenv('ACTIVEMQ_WRITE_LOGIN'), os.getenv('ACTIVEMQ_WRITE_PASSWORD'))
         serviceRun.do_setting_activemq_groups("writes", os.getenv('ACTIVEMQ_WRITE_LOGIN'))
+        serviceRun.do_setting_activemq_groups("tempDestinationAdmins", os.getenv('ACTIVEMQ_WRITE_LOGIN'))
 
     # We setting the reader account
     if os.getenv('ACTIVEMQ_READ_LOGIN') is not None and os.getenv('ACTIVEMQ_READ_PASSWORD') is not None:
